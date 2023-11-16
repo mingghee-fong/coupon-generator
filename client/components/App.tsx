@@ -10,11 +10,13 @@ function App() {
   return (
     <>
       <div className="app">
-        <h1>Coupon Generator</h1>
+        <div className="titlebox">
+          <h1>Coupon Generator</h1>
+        </div>
         <ul>{data && data.map((fruit) => <li key={fruit}>{fruit}</li>)}</ul>
         <CatergoryMenu />
-        <CouponListItem />
-        <AddCouponForm />
+        {/* <CouponListItem />
+        <AddCouponForm /> */}
       </div>
     </>
   )
