@@ -6,3 +6,4 @@ export interface Fruit {
 export interface FruitData {
   name: string
 }
+
