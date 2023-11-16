@@ -3,4 +3,27 @@
 html, 
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: red;
 }
+
+.titlebox {
+  background-color: green;
+  width: max;
+  height: 100px;
+  text-align: center;
+  font-size: 30px;
+  padding: 10px 0px 60px 0px;
+}
+
+.app {
+  background-color: aqua;
+  
+}
+
+.navbox {
+  background-color: bisque;
+  position: fixed;
+  padding: 0px 40px 0px 0px;
+  border-radius: 12px;
+}
+
