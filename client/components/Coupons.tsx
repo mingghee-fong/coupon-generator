@@ -2,7 +2,12 @@ import { useState } from 'react'
 import styles from './PokemonListItem.module.css'
 // API Import here
 import { getFruits } from '../apis/fruits'
-import { useMutation, QueryClient, useQueryClient } from '@tanstack/react-query'
+import {
+  useMutation,
+  QueryClient,
+  useQueryClient,
+  useQuery,
+} from '@tanstack/react-query'
 
 export default function CouponList() {
   const {
