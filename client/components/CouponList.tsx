@@ -1,50 +1,49 @@
 import { useState } from 'react'
 import styles from './PokemonListItem.module.css'
 // API Import here
-import { getFruits } from '../apis/fruits'
-import { useMutation, QueryClient, useQueryClient } from '@tanstack/react-query'
+import {
+  useMutation,
+  QueryClient,
+  useQueryClient,
+  useQuery,
+} from '@tanstack/react-query'
+import { getCoupons } from '../apis/coupons'
 
-// export default function CouponList() {
-//   const {
-//     data: coupon,
-//     error,
-//     isLoading,
-//   } = useQuery({ queryKey: ['coupon'], queryFn: () => getFruits() }) //Get fruits will be the api function for coupons
-//   if (error) return <p>My Brother in Christ</p>
+export default function CouponList() {
+  const {
+    data: coupon,
+    error,
+    isLoading,
+  } = useQuery({ queryKey: ['coupon'], queryFn: () => getCoupons() })
 
-//   if (isLoading)
-//     return (
-//       <>
-//         <p>bruh dis shit loading</p>
-//       </>
-//     )
-// }
+  if (error) return <p>My Brother in Christ</p>
 
-export function CouponList() {
-  const coupons: {
-    id: number
-    code: string
-    discount: string
-  }[] = [
-    { id: 1, code: 'Voucher1', discount: '10%' },
-    { id: 2, code: 'Voucher2', discount: '20%' },
-    { id: 3, code: 'Voucher3', discount: '30%' },
-    { id: 4, code: 'Voucher4', discount: '40%' },
-  ]
+  console.log(coupon)
+
+  if (isLoading)
+    return (
+      <>
+        <p>bruh dis shit loading</p>
+      </>
+    )
 
   return (
     <>
-      <div>
-        <h2>Coupon List</h2>
-        <ul>
-          {coupons.map((coupon) => (
-            <>
-              <li key={coupon.id}>{coupon.code}</li>
-              <li key={coupon.id}>{coupon.discount}</li>
-            </>
-          ))}
-        </ul>
-      </div>
+      {coupon?.coupon.map((c) => {
+        return (
+          <div key={c.id} className="coupon">
+            <div className="coupon-left">
+              <h3 className="coupon-value">For {c.value} off</h3>
+              <h2 className="coupon-item-name">{c.itemName}</h2>
+              {/* <p className="coupon-no">#{c.id}</p> */}
+            </div>
+            <div className="coupon-right">
+              <p className="coupon-vendor-name">- {c.vendorName}</p>
+              <p className="coupon-date">{c.expirationDate}</p>
+            </div>
+          </div>
+        )
+      })}
     </>
   )
 }
