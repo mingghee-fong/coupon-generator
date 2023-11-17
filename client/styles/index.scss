@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
 
 
@@ -11,10 +11,11 @@ body {
 
 .app {
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   display: flex;
   flex-direction: column;
   // background: #000;
+  gap: 5em;
 }
 
 .titlebox{
@@ -53,7 +54,7 @@ body {
 }
 
 .coupon{
-  width: 25em;
+  width: 30em;
   display: flex;
   flex-direction: row;
   // background: red;
@@ -65,6 +66,8 @@ body {
     padding: 2em 0em 2em 2em;
     display: flex;
     flex-direction: column;
+    background: #cbffc0;
+    border-radius: 30px;
   }
 
   &-right{
@@ -73,7 +76,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: end;
-    height: 100%;
+    // height: 60%;
   }
 
   &-value{
@@ -84,15 +87,28 @@ body {
   &-value{
     padding: 0;
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
   }
 
   &-item-name{
     padding: 0;
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
   }
 
   &-vendor-name{
     padding: 0;
     margin: 0;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+
+  &-date{
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
   }
 }
