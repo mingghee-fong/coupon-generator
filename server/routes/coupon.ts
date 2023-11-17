@@ -27,4 +27,40 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.post('/', async (req, res) => {
+  const coupon = req.body
+  try {
+    const coupons = await db.addACoupon(coupon)
+    //console.log(coupons)
+    res.json({ coupons })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
+router.patch('/', async (req, res) => {
+  const coupon = req.body
+  try {
+    const coupons = await db.updateACoupon(coupon)
+    //console.log(coupons)
+    res.json({ coupons })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
+router.delete('/', async (req, res) => {
+  const coupon = req.body
+  try {
+    const coupons = await db.deleteACoupon(coupon)
+    //console.log(coupons)
+    res.json({ coupons })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router
