@@ -2,7 +2,6 @@
 import { useCoupons } from '../hooks/useCoupons.ts'
 
 import CouponListItem from './CouponListItem.tsx'
-//import CategoryMenu from './Category.tsx' = <CategoryMenu />
 import AddCouponForm from './AddCoupon.tsx'
 import VendorList from './VendorList.tsx'
 import CouponList from './CouponList.tsx'
@@ -19,6 +18,7 @@ function App() {
       <div className="landing">
         <div className="landing__left">
           <VendorList />
+
         </div>
         <div className="landing__right">
           <CouponList />
