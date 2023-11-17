@@ -1,9 +1,9 @@
 export default function CatergoryMenu() {
   return (
     <>
-      <div className="navbox">
-        <ul>
-          <h3>Category List</h3>
+      <div className="landing__nav">
+        <ul className="nav__list">
+          <h3 className="nav-list-title">Category List</h3>
           <li>Food</li>
           <li>Cosmetic</li>
           <li>Clothing</li>
@@ -12,8 +12,8 @@ export default function CatergoryMenu() {
           <li>Human</li>
           <li>Junks</li>
         </ul>
-        <ul>
-          <h3>Vendor List</h3>
+        <ul className="nav__list">
+          <h3 className="nav-list-title">Vendor List</h3>
           <li>food</li>
           <li>Cosmetic</li>
           <li>Clothing</li>
