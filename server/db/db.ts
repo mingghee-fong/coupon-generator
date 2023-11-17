@@ -1,17 +1,23 @@
 import connection from './connection.ts'
 import { Coupon } from '../../models/coupons.js'
+import { Category } from '../../models/categories.js'
 
 export async function getAllCoupons(db = connection): Promise<[Coupon]> {
   // TODO: use knex to get the real location data from the database
   try {
-    const result = db('coupon_table').select(
-      'id',
-      'item_name as itemName',
-      'value',
-      'vendor_id as vendorId',
-      'category_id as categoryId',
-      'expiration_date as expirationDate',
-    )
+    const result = db('coupon_table')
+      .join('vendor_table', 'vendor_table.vendor_id', 'coupon_table.vendor_id')
+      .join('category_table', 'category_table.category_id', 'coupon_table.category_id')
+      .select(
+        'id',
+        'item_name as itemName',
+        'value',
+        'vendor_table.vendor_id as vendorId',
+        'category_table.category_id as categoryId',
+        'expiration_date as expirationDate',
+        'vendor_name as vendorName',
+        'category_name as categoryName',
+      )
     console.log(result)
     return result
   } catch (err: any) {
@@ -25,6 +31,30 @@ export async function getACoupon(id, db = connection): Promise<[Coupon]> {
   try {
     const result = db('coupon_table').select().where('id', id).first()
     console.log(result)
+    return result
+  } catch (err: any) {
+    console.log(err.message)
+    return err.message
+  }
+}
+
+export async function getAllCatgories(db = connection): Promise<[Category]> {
+  // TODO: use knex to get the real location data from the database
+  try {
+    const result = db('category_table').select()
+    //console.log(result)
+    return result
+  } catch (err: any) {
+    console.log(err.message)
+    return err.message
+  }
+}
+
+export async function getAllVendors(db = connection): Promise<[Category]> {
+  // TODO: use knex to get the real location data from the database
+  try {
+    const result = db('vendor_table').select()
+    //console.log(result)
     return result
   } catch (err: any) {
     console.log(err.message)

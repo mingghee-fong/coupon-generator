@@ -5,6 +5,8 @@ export interface Coupon {
   vendorId: number
   categoryId: number
   expirationDate: string
+  vendorName: string
+  categoryName: string
 }
 
 export default Coupon
