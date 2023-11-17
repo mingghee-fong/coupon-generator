@@ -1,42 +1,42 @@
 import { useState } from 'react'
 import styles from './PokemonListItem.module.css'
 // API Import here
-import { getFruits } from '../apis/fruits'
-import { useMutation, QueryClient, useQueryClient } from '@tanstack/react-query'
+import { getVendors } from '../apis/vendors'
+import { useMutation, QueryClient, useQuery } from '@tanstack/react-query'
 
-// export default function CouponList() {
-//   const {
-//     data: coupon,
-//     error,
-//     isLoading,
-//   } = useQuery({ queryKey: ['coupon'], queryFn: () => getFruits() }) //Get fruits will be the api function for coupons
-//   if (error) return <p>My Brother in Christ</p>
+// export default function List() {
 
-//   if (isLoading)
-//     return (
-//       <>
-//         <p>bruh dis shit loading</p>
-//       </>
-//     )
-// }
+export default function VendorList() {
+  const {
+    data: vendor,
+    error,
+    isLoading,
+  } = useQuery({ queryKey: ['vendor'], queryFn: () => getVendors() }) //Get fruits will be the api function for coupons
+  if (error) return <p>Vendor Error request</p>
 
-export function VendorList() {
-  const vendor: {
-    id: number
-    name: string
-  }[] = [
-    { id: 1, name: 'Toys R Us' },
-    { id: 2, name: 'Other' }
-  ]
-
+  if (isLoading) {
+    return (
+      <>
+        <p>unloading People skills</p>
+      </>
+    )
+  }
+  // const vendor: {
+  //   id: number
+  //   name: string
+  // }[] = [
+  //   { id: 1, name: 'Toys R Us' },
+  //   { id: 2, name: 'Other' }
+  // ]
+  console.log(vendor)
   return (
     <>
       <div>
         <h2>Vendor List</h2>
         <ul>
-          {vendor.map((vendor) => (
+          {vendor.vendor.map((vendor) => (
             <>
-              <li key={vendor.id}>{vendor.name}</li>
+              <li key={vendor.VendorId}>{vendor.vendorName}</li>
             </>
           ))}
         </ul>

@@ -105,7 +105,10 @@ export async function getAllCatgories(db = connection): Promise<[Category]> {
 export async function getAllVendors(db = connection): Promise<[Category]> {
   // TODO: use knex to get the real location data from the database
   try {
-    const result = db('vendor_table').select()
+    const result = db('vendor_table').select(
+      'vendor_id as vendorId',
+      'vendor_name as vendorName',
+    )
     //console.log(result)
     return result
   } catch (err: any) {
