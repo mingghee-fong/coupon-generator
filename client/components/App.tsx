@@ -2,7 +2,6 @@
 import { useCoupons } from '../hooks/useCoupons.ts'
 
 import CouponListItem from './CouponListItem.tsx'
-import CategoryMenu from './Category.tsx'
 import AddCouponForm from './AddCoupon.tsx'
 import CouponList from './CouponList.tsx'
 
@@ -17,7 +16,6 @@ function App() {
       {/* <ul>{data && data.map((fruit) => <li key={fruit}>{fruit}</li>)}</ul> */}
       <div className="landing">
         <div className="landing__left">
-          <CategoryMenu />
         </div>
         <div className="landing__right">
           <CouponList />
