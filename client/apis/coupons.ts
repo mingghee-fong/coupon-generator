@@ -1,21 +1,13 @@
 import request from 'superagent'
+import type { Coupon } from '../../models/coupons'
 
 const rootUrl = '/api/v1'
 
-export function getCoupons(): Promise<string[]> {
-  return request.get(rootUrl + '/coupons').then((res) => {
-    return res.body.coupons
-  })
-}
+export async function getCoupons() {
+  // return request.get(rootUrl + '/coupons').then((res) => {
+  //   return res.body as Coupon[]
+  // })
 
-export function getVendors(): Promise<string[]> {
-  return request.get(rootUrl + '/vendor').then((res) => {
-    return res.body.coupons
-  })
-}
-
-export function getCategories(): Promise<string[]> {
-  return request.get(rootUrl + '/categories').then((res) => {
-    return res.body.coupons
-  })
+  const response = await request.get(rootUrl + '/coupons')
+  return response.body as Coupon[]
 }

@@ -1,18 +1,15 @@
-//import { useState } from 'react'
-//import styles from './PokemonListItem.module.css'
+import { useState } from 'react'
+import styles from './PokemonListItem.module.css'
 // API Import here
-import { getFruits } from '../apis/fruits'
-//import { useMutation, QueryClient, useQueryClient } from '@tanstack/react-query'
+import {
+  useMutation,
+  QueryClient,
+  useQueryClient,
+  useQuery,
+} from '@tanstack/react-query'
+import { getCoupons } from '../apis/coupons'
 
-export function CatergoryMenu() {
-  const vendor: {
-    id: number
-    name: string
-  }[] = [
-    { id: 1, name: 'Toys R Us' },
-    { id: 2, name: 'Other' }
-  ]
-
+export default function CategoryMenu() {
   return (
     <>
       <div>
