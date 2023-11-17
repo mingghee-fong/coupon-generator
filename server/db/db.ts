@@ -93,7 +93,10 @@ export async function getACoupon(id, db = connection): Promise<[Coupon]> {
 export async function getAllCatgories(db = connection): Promise<[Category]> {
   // TODO: use knex to get the real location data from the database
   try {
-    const result = db('category_table').select()
+    const result = db('category_table').select(
+      'category_id as categoryId',
+      'category_name as categoryName',
+    )
     //console.log(result)
     return result
   } catch (err: any) {
