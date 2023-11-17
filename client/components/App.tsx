@@ -5,6 +5,7 @@ import CouponListItem from './CouponListItem.tsx'
 import AddCouponForm from './AddCoupon.tsx'
 import VendorList from './VendorList.tsx'
 import CouponList from './CouponList.tsx'
+import CategoryList from './CategoryList.tsx'
 
 function App() {
   const { data } = useCoupons()
@@ -18,7 +19,7 @@ function App() {
       <div className="landing">
         <div className="landing__left">
           <VendorList />
-
+          <CategoryList />
         </div>
         <div className="landing__right">
           <CouponList />
